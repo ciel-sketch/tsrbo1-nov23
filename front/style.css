@@ -1,19 +1,20 @@
 svg {
-    width: 50em;
-    height: 25em;
-    border: 0.1em solid black;
+  width: 50em;
+  height: 25em;
+  border: 0.1em solid black;
 }
 
 circle {
-    fill: transparent;
-    stroke: black;
-    stroke-width: 0.02em;
+  fill: transparent;
+  stroke: black;
+  stroke-width: 0.02em;
 }
 
 .samples circle {
-    fill: black;
+  fill: black;
 }
 
-.lines {
-    stroke: black;
+.lines line {
+  stroke: black;
+  stroke-width: 0.02em;
 }
