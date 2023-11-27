@@ -26,7 +26,6 @@ for (let i = 0; i < samples; i++) {
   console.log("elt: %O", elt);
 
   const { x: cx, y: cy } = getSamplePosition(i, samples);
-  console.log(cx);
 
   elt.setAttributeNS(null, "cx", cx + "");
   elt.setAttributeNS(null, "cy", cy.toString());
