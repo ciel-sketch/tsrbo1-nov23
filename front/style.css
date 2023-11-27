@@ -13,3 +13,7 @@ circle {
 .samples circle {
     fill: black;
 }
+
+.lines {
+    stroke: black;
+}
