@@ -18,3 +18,18 @@ circle {
   stroke: black;
   stroke-width: 0.02em;
 }
+
+div.command {
+  width: 50em;
+  height: 10em;
+  border: 0.1em solid black;
+  padding: 0.5em;
+  box-sizing: content-box;
+  display: flex;
+  flex-flow: column;
+
+  & label {
+    display: flex;
+    flex-flow: column;
+  }
+}
