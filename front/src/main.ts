@@ -10,9 +10,7 @@ const r0 = 45;
 
 const multiplicationFactor = 2;
 
-const container = document.querySelector("svg .samples");
-console.log("container: ", container);
-const getSamplePosition = (i, samples) => {
+const getSamplePosition = (i: number, samples: number) => {
   const angle = (i * 2 * Math.PI) / samples - Math.PI / 2;
   const x = cx0 + r0 * Math.cos(angle);
   const y = cy0 + r0 * Math.sin(angle);
@@ -20,6 +18,11 @@ const getSamplePosition = (i, samples) => {
   return { x, y };
 };
 
+const container = document.querySelector("svg .samples");
+if (container === null) {
+  throw new Error("container is null");
+}
+console.log("container: ", container);
 for (let i = 0; i < samples; i++) {
   const elt = document.createElementNS(svgns, "circle");
   console.log("elt: %O", elt);
@@ -35,6 +38,9 @@ for (let i = 0; i < samples; i++) {
 
 const lineContainer = document.querySelector("svg .lines");
 console.log("lineContainer: ", lineContainer);
+if (lineContainer === null) {
+  throw new Error("lineContainer is null");
+}
 for (let i = 0; i < samples; i++) {
   const elt = document.createElementNS(svgns, "line");
   console.log("elt: %O", elt);
