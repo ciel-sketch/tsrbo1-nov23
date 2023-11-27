@@ -1,3 +1,5 @@
+import { querySelector } from "./misc.js";
+
 console.log("start");
 const svgns = "http://www.w3.org/2000/svg";
 
@@ -18,11 +20,7 @@ const getSamplePosition = (i: number, samples: number) => {
   return { x, y };
 };
 
-const container = document.querySelector("svg .samples");
-if (container === null) {
-  throw new Error("container is null");
-}
-console.log("container: ", container);
+const container = querySelector("svg .samples");
 for (let i = 0; i < samples; i++) {
   const elt = document.createElementNS(svgns, "circle");
   console.log("elt: %O", elt);
@@ -36,11 +34,7 @@ for (let i = 0; i < samples; i++) {
   container.appendChild(elt);
 }
 
-const lineContainer = document.querySelector("svg .lines");
-console.log("lineContainer: ", lineContainer);
-if (lineContainer === null) {
-  throw new Error("lineContainer is null");
-}
+const lineContainer = querySelector("svg .lines");
 for (let i = 0; i < samples; i++) {
   const elt = document.createElementNS(svgns, "line");
   console.log("elt: %O", elt);
