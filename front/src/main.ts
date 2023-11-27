@@ -27,9 +27,9 @@ for (let i = 0; i < samples; i++) {
   const { x: cx, y: cy } = getSamplePosition(i, samples);
   console.log(cx);
 
-  elt.setAttributeNS(null, "cx", cx);
-  elt.setAttributeNS(null, "cy", cy);
-  elt.setAttributeNS(null, "r", r);
+  elt.setAttributeNS(null, "cx", cx + "");
+  elt.setAttributeNS(null, "cy", cy.toString());
+  elt.setAttributeNS(null, "r", String(r));
   container.appendChild(elt);
 }
 
@@ -42,10 +42,10 @@ for (let i = 0; i < samples; i++) {
   const p1 = getSamplePosition(i, samples);
   const p2 = getSamplePosition(i * multiplicationFactor, samples);
 
-  elt.setAttributeNS(null, "x1", p1.x);
-  elt.setAttributeNS(null, "x2", p2.x);
-  elt.setAttributeNS(null, "y1", p1.y);
-  elt.setAttributeNS(null, "y2", p2.y);
+  elt.setAttributeNS(null, "x1", p1.x + "");
+  elt.setAttributeNS(null, "x2", p2.x + "");
+  elt.setAttributeNS(null, "y1", p1.y + "");
+  elt.setAttributeNS(null, "y2", p2.y + "");
 
   lineContainer.appendChild(elt);
 }
