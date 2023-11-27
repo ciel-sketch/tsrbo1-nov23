@@ -14,10 +14,10 @@ for (let i = 0; i < samples; i++) {
   const elt = document.createElementNS(svgns, "circle");
   console.log("elt: %O", elt);
 
-  const { x: cx, y: cy } = getSamplePosition(i, samples);
+  const c = getSamplePosition(i, samples);
 
-  setNbrAttribute(elt, "cx", cx);
-  setNbrAttribute(elt, "cy", cy);
+  setNbrAttribute(elt, "cx", c.x);
+  setNbrAttribute(elt, "cy", c.y);
   setNbrAttribute(elt, "r", r);
   container.appendChild(elt);
 }
