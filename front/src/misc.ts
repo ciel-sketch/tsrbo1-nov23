@@ -5,3 +5,11 @@ export const querySelector = (cssSelector: string): Element => {
   }
   return container;
 };
+
+export const setNbrAttribute = (
+  elt: SVGElement,
+  key: string,
+  value: number
+): void => {
+  elt.setAttributeNS(null, key, value + "");
+};
