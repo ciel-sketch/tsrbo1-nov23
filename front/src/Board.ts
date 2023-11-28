@@ -16,7 +16,6 @@ export class Board {
     container.innerHTML = "";
     for (let i = 0; i < samples; i++) {
       const elt = document.createElementNS(svgns, "circle");
-      console.log("elt: %O", elt);
 
       const c = getSamplePosition(i, samples);
 
@@ -30,7 +29,6 @@ export class Board {
     lineContainer.innerHTML = "";
     for (let i = 0; i < samples; i++) {
       const elt = document.createElementNS(svgns, "line");
-      console.log("elt: %O", elt);
 
       const p1 = getSamplePosition(i, samples);
       const p2 = getSamplePosition(i * multiplicationFactor, samples);

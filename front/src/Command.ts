@@ -38,8 +38,7 @@ export class Command {
         HTMLInputElement
       );
       // change : waits for mouseout event, input : triggers on mouse move
-      sliderElt.addEventListener("input", (event: Event): void => {
-        console.log("event: ", event);
+      sliderElt.addEventListener("input", (): void => {
         const config = { ...this.config, [key]: sliderElt.value };
         this.setConfig(config);
       });
