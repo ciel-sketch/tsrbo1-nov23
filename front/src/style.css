@@ -40,4 +40,14 @@ div.command {
     display: flex;
     flex-flow: column;
   }
+
+  & .buttons {
+    display: flex;
+    justify-content: space-around;
+
+    & button {
+      padding: 0.5em 1em;
+      cursor: pointer;
+    }
+  }
 }
