@@ -9,13 +9,16 @@ export class Board {
     samples: 0,
   };
 
-  public draw() {
+  public draw(): void {
+    const { samples, multiplicationFactor } = this.config;
+
     const container = querySelector("svg .samples");
-    for (let i = 0; i < this.config.samples; i++) {
+    container.innerHTML = "";
+    for (let i = 0; i < samples; i++) {
       const elt = document.createElementNS(svgns, "circle");
       console.log("elt: %O", elt);
 
-      const c = getSamplePosition(i, this.config.samples);
+      const c = getSamplePosition(i, samples);
 
       setNbrAttribute(elt, "cx", c.x);
       setNbrAttribute(elt, "cy", c.y);
@@ -24,15 +27,13 @@ export class Board {
     }
 
     const lineContainer = querySelector("svg .lines");
-    for (let i = 0; i < this.config.samples; i++) {
+    lineContainer.innerHTML = "";
+    for (let i = 0; i < samples; i++) {
       const elt = document.createElementNS(svgns, "line");
       console.log("elt: %O", elt);
 
-      const p1 = getSamplePosition(i, this.config.samples);
-      const p2 = getSamplePosition(
-        i * this.config.multiplicationFactor,
-        this.config.samples
-      );
+      const p1 = getSamplePosition(i, samples);
+      const p2 = getSamplePosition(i * multiplicationFactor, samples);
 
       setNbrAttribute(elt, "x1", p1.x);
       setNbrAttribute(elt, "x2", p2.x);
@@ -43,7 +44,7 @@ export class Board {
     }
   }
 
-  public setConfig(config: Config) {
+  public setConfig(config: Config): void {
     this.config = config;
   }
 }
