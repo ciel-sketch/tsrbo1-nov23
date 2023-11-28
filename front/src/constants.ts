@@ -11,10 +11,10 @@ export const step: number = parseFloat(
   querySelector(".command .multiplicationFactor input").getAttribute("step") ??
     "0.01"
 );
-console.log("step: ", step);
 
 export const max: number = parseFloat(
   querySelector(".command .multiplicationFactor input").getAttribute("max") ??
     "100"
 );
-console.log("max: ", max);
+
+export const url = "http://localhost:3000/api/random-config";

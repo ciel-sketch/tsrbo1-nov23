@@ -1,3 +1,4 @@
+import { api } from "./api";
 import { max, step } from "./constants";
 import { Config } from "./interfaces/Config";
 import { keys, querySelector, sleep } from "./misc";
@@ -54,13 +55,19 @@ export class Command {
 
   setBtnActions(): void {
     const btnElt = querySelector(".command .buttons .play");
-    btnElt.addEventListener("click", (event: Event) => {
-      console.log("event: ", event);
+    btnElt.addEventListener("click", () => {
       this.isPlaying = !this.isPlaying;
       if (this.isPlaying) {
         this.startPlaying();
       }
       this.render();
+    });
+
+    const randomBtnElt = querySelector(".command .buttons .random");
+    randomBtnElt.addEventListener("click", async () => {
+      this.config = await api.getRandomConfig();
+      this.render();
+      this.callback(this.config);
     });
   }
 
@@ -75,7 +82,7 @@ export class Command {
       this.config.multiplicationFactor = parseFloat(
         ((this.config.multiplicationFactor + step) % max).toFixed(2)
       );
-      console.log("multiplicationFactor: ", this.config.multiplicationFactor);
+
       this.render();
       this.callback(this.config);
       await sleep(15); // 1000/60 (60 images/seconde)
