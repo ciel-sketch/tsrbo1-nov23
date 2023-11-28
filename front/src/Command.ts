@@ -9,18 +9,26 @@ export class Command {
     samples: 0,
   };
 
-  onChange(callback: Callback) {
-    throw new Error("Method not implemented.");
+  callback: Callback = () => {};
+
+  onChange(callback: Callback): void {
+    this.callback = callback;
   }
 
-  render() {
+  render(): void {
     for (const key of keys(this.config)) {
       const elt = querySelector(`.command .${key} .value`);
       elt.innerHTML = this.config[key].toString();
+
+      const sliderElt = querySelector(
+        `.command .${key} input`,
+        HTMLInputElement
+      );
+      sliderElt.value = this.config[key].toString();
     }
   }
 
-  setConfig(config: Config) {
+  setConfig(config: Config): void {
     this.config = config;
     this.render();
   }
