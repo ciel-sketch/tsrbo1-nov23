@@ -13,3 +13,7 @@ export const setNbrAttribute = (
 ): void => {
   elt.setAttributeNS(null, key, value.toString());
 };
+
+export const keys = <T extends object>(obj: T) => {
+  return Object.keys(obj) as (keyof T)[];
+};

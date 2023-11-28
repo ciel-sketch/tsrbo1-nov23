@@ -1,5 +1,5 @@
 import { Config } from "./interfaces/Config";
-import { querySelector } from "./misc";
+import { keys, querySelector } from "./misc";
 
 type Callback = (newConfig: Config) => void;
 
@@ -14,12 +14,10 @@ export class Command {
   }
 
   render() {
-    for (const key of Object.keys(this.config) as (keyof Config)[]) {
+    for (const key of keys(this.config)) {
       const elt = querySelector(`.command .${key} .value`);
       elt.innerHTML = this.config[key].toString();
     }
-    //const elt2 = querySelector(".command .multiplicationFactor .value");
-    //elt2.innerHTML = this.config.multiplicationFactor.toString();
   }
 
   setConfig(config: Config) {
