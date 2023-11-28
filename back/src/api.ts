@@ -1,5 +1,5 @@
 import express from "express";
-import { Config } from "./interfaces/Config";
+import type { Config } from "./interfaces/Config";
 import { random } from "./utils";
 
 const app = express.Router();
