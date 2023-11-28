@@ -1,6 +1,8 @@
+type Class<T> = new () => T; // pour indiquer qu'on veut la classe qu'on souhaite instancier l'élément qu'on va récupérer
+
 export const querySelector = <T extends Element>(
   cssSelector: string,
-  type?: new () => T // pour indiquer qu'on veut le nom de la classe
+  type?: Class<T>
 ): T => {
   const container = document.querySelector(cssSelector);
   if (container === null) {
