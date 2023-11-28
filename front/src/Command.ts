@@ -14,9 +14,9 @@ export class Command {
   }
 
   render() {
-    for(const key in this.config) {
+    for (const key of Object.keys(this.config) as (keyof Config)[]) {
       const elt = querySelector(`.command .${key} .value`);
-      elt.innerHTML = this.config[key as keyof Config].toString();
+      elt.innerHTML = this.config[key].toString();
     }
     //const elt2 = querySelector(".command .multiplicationFactor .value");
     //elt2.innerHTML = this.config.multiplicationFactor.toString();
