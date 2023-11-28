@@ -11,5 +11,5 @@ export const setNbrAttribute = (
   key: string,
   value: number
 ): void => {
-  elt.setAttributeNS(null, key, value + "");
+  elt.setAttributeNS(null, key, value.toString());
 };
